@@ -9,8 +9,10 @@ import XCTest
 @testable import StringToIntegerFramework
 
 final class StringToIntegerFrameworkTests: XCTestCase {
-    // System under test.
+    // This is the test string that will be passed to the string-to-integer converter function.
     private var string: String!
+    
+    // This is the correct value (integer or nil) we expect the string-to-integer converter to return.
     private var expected: Int?
     
     override func setUpWithError() throws {
