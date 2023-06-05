@@ -141,61 +141,61 @@ extension StringToIntegerFrameworkTests {
 
 //MARK: Verify functions generalize individual tests for different conversion implementations (i.e. the system under test, aka sut).
 extension StringToIntegerFrameworkTests {
-    func verifyThatStringIs0ThenItConvertsTo0(using sut: (String) -> Int?) {
+    private func verifyThatStringIs0ThenItConvertsTo0(using sut: (String) -> Int?) {
         givenString(is: "0")
         whenStringConversionIsAttempted(using: sut)
         thenInteger(is: 0)
     }
     
-    func verifyThatStringIsNegative0ThenItConvertsTo0(using sut: (String) -> Int?) {
+    private func verifyThatStringIsNegative0ThenItConvertsTo0(using sut: (String) -> Int?) {
         givenString(is: "-0")
         whenStringConversionIsAttempted(using: sut)
         thenInteger(is: 0)
     }
     
-    func verifyThatStringIsPositive0ThenItConvertsTo0(using sut: (String) -> Int?) {
+    private func verifyThatStringIsPositive0ThenItConvertsTo0(using sut: (String) -> Int?) {
         givenString(is: "+0")
         whenStringConversionIsAttempted(using: sut)
         thenInteger(is: 0)
     }
     
-    func verifyThatStringIs1234ThenItConvertsTo1234(using sut: (String) -> Int?) {
+    private func verifyThatStringIs1234ThenItConvertsTo1234(using sut: (String) -> Int?) {
         givenString(is: "1234")
         whenStringConversionIsAttempted(using: sut)
         thenInteger(is: 1234)
     }
     
-    func verifyThatStringIsNegative1234ThenItConvertsTo1234(using sut: (String) -> Int?) {
+    private func verifyThatStringIsNegative1234ThenItConvertsTo1234(using sut: (String) -> Int?) {
         givenString(is: "-1234")
         whenStringConversionIsAttempted(using: sut)
         thenInteger(is: -1234)
     }
     
-    func verifyThatStringIsPositive1234ThenItConvertsTo1234(using sut: (String) -> Int?) {
+    private func verifyThatStringIsPositive1234ThenItConvertsTo1234(using sut: (String) -> Int?) {
         givenString(is: "+1234")
         whenStringConversionIsAttempted(using: sut)
         thenInteger(is: 1234)
     }
 
-    func verifyThatStringIsEmptyThenItFailsByReturningNil(using sut: (String) -> Int?) {
+    private func verifyThatStringIsEmptyThenItFailsByReturningNil(using sut: (String) -> Int?) {
         givenString(is: "")
         whenStringConversionIsAttempted(using: sut)
         thenConversionFailsByReturningNil()
     }
 
-    func verifyThatStringIsALoneMinusThenItFailsByReturningNil(using sut: (String) -> Int?) {
+    private func verifyThatStringIsALoneMinusThenItFailsByReturningNil(using sut: (String) -> Int?) {
         givenString(is: "-")
         whenStringConversionIsAttempted(using: sut)
         thenConversionFailsByReturningNil()
     }
 
-    func verifyThatStringIsALonePlusThenItFailsByReturningNil(using sut: (String) -> Int?) {
+    private func verifyThatStringIsALonePlusThenItFailsByReturningNil(using sut: (String) -> Int?) {
         givenString(is: "+")
         whenStringConversionIsAttempted(using: sut)
         thenConversionFailsByReturningNil()
     }
     
-    func verifyThatStringContainsInvalidCharacterThenItFailsByReturningNil(using sut: (String) -> Int?) {
+    private func verifyThatStringContainsInvalidCharacterThenItFailsByReturningNil(using sut: (String) -> Int?) {
         givenString(is: "12x34")
         whenStringConversionIsAttempted(using: sut)
         thenConversionFailsByReturningNil()
