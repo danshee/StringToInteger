@@ -17,6 +17,13 @@ The file [MyConvert.swift](StringToIntegerFramework/MyConvert.swift) contains my
 5. It makes an unnecessary conversion from `Decimal` to `NSDecimalNumber` in order to convert that `Decimal` back to an `Int`.
 
 
+(1) and (2) can be seen in failing test cases:
+* `testTutorialConvertGivenStringIsNegative0ThenItConvertsTo0()`
+* `testTutorialConvertGivenStringIsPositive0ThenItConvertsTo0()`
+* `testTutorialConvertGivenStringIsNegative1234ThenItConvertsTo1234()`
+* `testTutorialConvertGivenStringIsPositive1234ThenItConvertsTo1234()`
+* `testTutorialConvertGivenStringIsEmptyThenItFailsByReturningNil()`
+
 
 ## Project Structure
 
