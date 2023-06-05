@@ -137,7 +137,7 @@ extension StringToIntegerFrameworkTests {
     }
 }
 
-//MARK: Verify functions generatize individual tests.
+//MARK: Verify functions generalize individual tests for different conversion implementations (i.e. the system under test, aka sut).
 extension StringToIntegerFrameworkTests {
     func verifyThatStringIs0ThenItConvertsTo0(using sut: (String) -> Int?) {
         givenString(is: "0")
