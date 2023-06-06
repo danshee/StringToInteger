@@ -63,6 +63,14 @@ extension StringToIntegerFrameworkTests {
     func testMyConvertGivenStringContainsInvalidCharacterThenItFailsByReturningNil() {
         verifyThatStringContainsInvalidCharacterThenItFailsByReturningNil(using: StringToIntegerFramework.myConvert)
     }
+    
+    func testMyConvertGivenStringPrefixedByInvalidCharacterThenItFailsByReturningNil() {
+        verifyThatStringPrefixedByInvalidCharacterThenItFailsByReturningNil(using: StringToIntegerFramework.myConvert)
+    }
+    
+    func testMyConvertGivenStringPostfixedByInvalidCharacterThenItFailsByReturningNil() {
+        verifyThatStringPostfixedByInvalidCharacterThenItFailsByReturningNil(using: StringToIntegerFramework.myConvert)
+    }
 }
 
 //MARK: Test tutorial's implementation StringToIntegerFramework.convert().
@@ -111,6 +119,14 @@ extension StringToIntegerFrameworkTests {
     
     func testTutorialConvertGivenStringContainsInvalidCharacterThenItFailsByReturningNil() {
         verifyThatStringContainsInvalidCharacterThenItFailsByReturningNil(using: StringToIntegerFramework.tutorialConvert)
+    }
+    
+    func testTutorialConvertGivenStringPrefixedByInvalidCharacterThenItFailsByReturningNil() {
+        verifyThatStringPrefixedByInvalidCharacterThenItFailsByReturningNil(using: StringToIntegerFramework.tutorialConvert)
+    }
+    
+    func testTutorialConvertGivenStringPostfixedByInvalidCharacterThenItFailsByReturningNil() {
+        verifyThatStringPostfixedByInvalidCharacterThenItFailsByReturningNil(using: StringToIntegerFramework.tutorialConvert)
     }
 }
 
@@ -197,6 +213,18 @@ extension StringToIntegerFrameworkTests {
     
     private func verifyThatStringContainsInvalidCharacterThenItFailsByReturningNil(using sut: (String) -> Int?) {
         givenString(is: "12x34")
+        whenStringConversionIsAttempted(using: sut)
+        thenConversionFailsByReturningNil()
+    }
+    
+    private func verifyThatStringPrefixedByInvalidCharacterThenItFailsByReturningNil(using sut: (String) -> Int?) {
+        givenString(is: "x1234")
+        whenStringConversionIsAttempted(using: sut)
+        thenConversionFailsByReturningNil()
+    }
+    
+    private func verifyThatStringPostfixedByInvalidCharacterThenItFailsByReturningNil(using sut: (String) -> Int?) {
+        givenString(is: "1234x")
         whenStringConversionIsAttempted(using: sut)
         thenConversionFailsByReturningNil()
     }
