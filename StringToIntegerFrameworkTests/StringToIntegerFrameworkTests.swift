@@ -36,6 +36,14 @@ extension StringToIntegerFrameworkTests {
         verifyThatStringIsPositive0ThenItConvertsTo0(using: StringToIntegerFramework.myConvert)
     }
     
+    func testConvertGivenStringIsMinIntThenItConvertsToMinInt() {
+        verifyThatStringIsMinIntThenItConvertsToMinInt(using: StringToIntegerFramework.myConvert)
+    }
+    
+    func testMyConvertGivenStringIsMaxIntThenItConvertsToMaxInt() {
+        verifyThatStringIsMaxIntThenItConvertsToMaxInt(using: StringToIntegerFramework.myConvert)
+    }
+
     func testMyConvertGivenStringIs1234ThenItConvertsTo1234() {
         verifyThatStringIs1234ThenItConvertsTo1234(using: StringToIntegerFramework.myConvert)
     }
@@ -94,6 +102,14 @@ extension StringToIntegerFrameworkTests {
         verifyThatStringIs1234ThenItConvertsTo1234(using: StringToIntegerFramework.tutorialConvert)
     }
     
+    func testTutorialConvertGivenStringIsMinIntThenItConvertsToMinInt() {
+        verifyThatStringIsMinIntThenItConvertsToMinInt(using: StringToIntegerFramework.tutorialConvert)
+    }
+    
+    func testTutorialConvertGivenStringIsMaxIntThenItConvertsToMaxInt() {
+        verifyThatStringIsMaxIntThenItConvertsToMaxInt(using: StringToIntegerFramework.tutorialConvert)
+    }
+
     func testTutorialConvertGivenStringIsNegative1234ThenItConvertsTo1234() {
         //NOTE: This test fails because `tutorialConvert` doesn't handle negative signed integer strings.
         verifyThatStringIsNegative1234ThenItConvertsTo1234(using: StringToIntegerFramework.tutorialConvert)
@@ -173,6 +189,18 @@ extension StringToIntegerFrameworkTests {
         givenString(is: "+0")
         whenStringConversionIsAttempted(using: sut)
         thenInteger(is: 0)
+    }
+
+    private func verifyThatStringIsMinIntThenItConvertsToMinInt(using sut: (String) -> Int?) {
+        givenString(is: "\(Int.min)")
+        whenStringConversionIsAttempted(using: sut)
+        thenInteger(is: Int.min)
+    }
+
+    private func verifyThatStringIsMaxIntThenItConvertsToMaxInt(using sut: (String) -> Int?) {
+        givenString(is: "\(Int.max)")
+        whenStringConversionIsAttempted(using: sut)
+        thenInteger(is: Int.max)
     }
     
     private func verifyThatStringIs1234ThenItConvertsTo1234(using sut: (String) -> Int?) {
